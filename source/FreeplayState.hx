@@ -116,7 +116,7 @@ class FreeplayState extends MusicBeatState
 		var swag:Alphabet = new Alphabet(1, 0, "swag");
 
 		#if android
-		addVirtualPad(LEFT_FULL, A_B);
+		addVirtualPad(FULL, A_B);
 		#end
 			
 		super.create();
