@@ -4,11 +4,12 @@ import shaders.BuildingShaders;
 import shaders.ColorSwap;
 #if desktop
 import Discord.DiscordClient;
+
+#end
 import sys.thread.Thread;
 import Sys;
 import openfl.display.BitmapData;
-import sys.FileSystem;
-#end
+import sys.FileSystem;	
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
@@ -93,25 +94,25 @@ class TitleState extends MusicBeatState
 	override public function create():Void
 	{
 		#if MODS_ALLOWED
-		if (OpenFlAssets.exists('mods/'))
+		if (FileSystem.exists(SUtil.getStorageDirectory() + 'mods/'))
 		{
 			var folders:Array<String> = [];
-			for (file in list.filter(text -> text.contains('mods/')))
+			for (file in FileSystem.readDirectory(SUtil.getStorageDirectory() + 'mods/'))
 			{
 				var path = haxe.io.Path.join(['mods/', file]);
-				if (list.filter(text -> text.contains(path)))
+				if (FileSystem.readDirectory(path))
 				{
 					folders.push(file);
 				}
 			}
 		}
-		if (OpenFlAssets.exists('mods/' + ModsMenuState.coolId + '/'))
+		if (FileSystem.exists(SUtil.getStorageDirectory() + 'mods/' + ModsMenuState.coolId + '/'))
 		{
 			var folders:Array<String> = [];
-			for (file in list.filter(text -> text.contains('mods/' + ModsMenuState.coolId + '/')))
+			for (file in FileSystem.readDirectory(SUtil.getStorageDirectory() +'mods/' + ModsMenuState.coolId + '/'))
 			{
 				var path = haxe.io.Path.join(['mods/' + ModsMenuState.coolId + '/', file]);
-				if (list.filter(text -> text.contains(path)))
+				if (FileSystem.readDirectory(path))
 				{
 					folders.push(file);
 				}
