@@ -17,12 +17,14 @@ import lime.app.Application;
 import openfl.events.UncaughtErrorEvent;
 import haxe.CallStack;
 import haxe.io.Path;
+#if desktop 
 import Discord.DiscordClient;
+#end
 import sys.FileSystem;
 import sys.io.File;
 import sys.io.Process;
 #end
-
+import lime.system.System;
 using StringTools;
 
 class Main extends Sprite
@@ -37,6 +39,9 @@ class Main extends Sprite
 
 	@:keep public static var letterOffset:Bool = false; // alphabet offset workaround idk;
 
+	public static var path:String = System.applicationStorageDirectory;
+
+	
 	var focusMusicTween:FlxTween;
 
 	// You can pretty much ignore everything from here on - your code should go in your states.
@@ -204,7 +209,7 @@ class Main extends Sprite
 		dateNow = dateNow.replace(" ", "_");
 		dateNow = dateNow.replace(":", "'");
 
-		path = "./crash/" + "ChocolateEngine_" + dateNow + ".txt";
+		path = Main.path + "./crash/" + "ChocolateEngine_" + dateNow + ".txt";
 
 		for (stackItem in callStack)
 		{
@@ -221,8 +226,8 @@ class Main extends Sprite
 			+ e.error
 			+ "\nPlease report this error to the GitHub page: https://github.com/Joalor64GH/Chocolate-Engine/issues\n\n> Crash Handler written by: sqirra-rng";
 
-		if (!FileSystem.exists("./crash/"))
-			FileSystem.createDirectory("./crash/");
+		if (!FileSystem.exists(Main.path + "./crash/"))
+			FileSystem.createDirectory(Main.path + "./crash/");
 
 		File.saveContent(path, errMsg + "\n");
 
@@ -230,7 +235,7 @@ class Main extends Sprite
 		Sys.println("Crash dump saved in " + Path.normalize(path));
 
 		Application.current.window.alert(errMsg, "Error!");
-		DiscordClient.shutdown();
+		
 		Sys.exit(1);
 	}
 	#end
