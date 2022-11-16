@@ -202,7 +202,7 @@ class ModPaths
 			var path = 'mods/$mod/videos/$key.$i';
 
 			trace(path);
-			if (OpenflAssets.exists(path))
+			if (OpenFlAssets.exists(path))
 				return path;
 		}
 		return 'mods/$mod/videos/$key.mp4';
@@ -282,7 +282,7 @@ class ModPaths
 			path = 'mods/$mod/$file';
 		else
 			path = 'mods/$file';
-		if (OpenflAssets.exists(path, type))
+		if (OpenFlAssets.exists(path, type))
 			return path;
 
 		return 'mods';
