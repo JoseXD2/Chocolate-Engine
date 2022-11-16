@@ -5,7 +5,7 @@ import sys.io.File;
 import sys.FileSystem;
 import openfl.display.BitmapData;
 import flixel.FlxSprite;
-
+import openfl.utils.Assets as OpenFlAssets;
 class ModIcon extends FlxSprite
 {
 	/**
@@ -17,10 +17,10 @@ class ModIcon extends FlxSprite
 	{
 		super();
 
-		var imageDataRaw = File.getBytes(Sys.getCwd() + "mods/" + modId + "/_polymod_icon.png");
+		var imageDataRaw = File.getBytes(Main.path + "mods/" + modId + "/_polymod_icon.png");
 		var graphicData = BitmapData.fromBytes(imageDataRaw);
 
-		if (FileSystem.exists(Sys.getCwd() + "mods/" + modId + "/_polymod_icon.png"))
+		if (OpenFlAssets.exists(Main.path + "mods/" + modId + "/_polymod_icon.png"))
 		{
 			loadGraphic(graphicData, false, 0, 0, false, modId);
 		}
