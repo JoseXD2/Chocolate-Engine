@@ -78,7 +78,6 @@
 	<assets path='art/readme.txt' rename='do NOT readme.txt' />
 	<assets path='LICENSE' rename='LICENSE.txt' />
 
-	<assets path="assets/android" if="android"/>
 	
 	<!-- _______________________________ Libraries ______________________________ -->
 
