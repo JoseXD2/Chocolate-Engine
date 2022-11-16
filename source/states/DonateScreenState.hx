@@ -67,6 +67,10 @@ class DonateScreenState extends MusicBeatState
 		someText.screenCenter(X);
 		add(someText);
 
+		#if android
+                addVirtualPad(NONE, A_B);
+                #end
+			
 		super.create();
 	}
 
