@@ -30,6 +30,7 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import lime.app.Application;
+import openfl.Assets;
 import openfl.Assets as OpenFlAssets;
 import flixel.input.keyboard.FlxKey;
 #if MODS_ALLOWED
@@ -87,6 +88,8 @@ class TitleState extends MusicBeatState
 	var swagShader:ColorSwap;
 	var alphaShader:BuildingShaders;
 
+	var list = Assets.list();
+	
 	override public function create():Void
 	{
 		#if MODS_ALLOWED
