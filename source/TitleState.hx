@@ -90,25 +90,25 @@ class TitleState extends MusicBeatState
 	override public function create():Void
 	{
 		#if MODS_ALLOWED
-		if (sys.FileSystem.exists('mods/'))
+		if (OpenFlAssets.exists('mods/'))
 		{
 			var folders:Array<String> = [];
-			for (file in sys.FileSystem.readDirectory('mods/'))
+			for (file in list.filter(text -> text.contains('mods/')))
 			{
 				var path = haxe.io.Path.join(['mods/', file]);
-				if (sys.FileSystem.isDirectory(path))
+				if (list.filter(text -> text.contains(path)))
 				{
 					folders.push(file);
 				}
 			}
 		}
-		if (sys.FileSystem.exists('mods/' + ModsMenuState.coolId + '/'))
+		if (OpenFlAssets.exists('mods/' + ModsMenuState.coolId + '/'))
 		{
 			var folders:Array<String> = [];
-			for (file in sys.FileSystem.readDirectory('mods/' + ModsMenuState.coolId + '/'))
+			for (file in list.filter(text -> text.contains('mods/' + ModsMenuState.coolId + '/')))
 			{
 				var path = haxe.io.Path.join(['mods/' + ModsMenuState.coolId + '/', file]);
-				if (sys.FileSystem.isDirectory(path))
+				if (list.filter(text -> text.contains(path)))
 				{
 					folders.push(file);
 				}
