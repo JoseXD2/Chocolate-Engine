@@ -30,7 +30,7 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import lime.app.Application;
-import openfl.Assets;
+import openfl.Assets as OpenFlAssets;
 import flixel.input.keyboard.FlxKey;
 #if MODS_ALLOWED
 import ModsMenuState;
