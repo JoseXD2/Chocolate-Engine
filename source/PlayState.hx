@@ -855,6 +855,11 @@ class PlayState extends MusicBeatState
 		chocoTxt.cameras = [camHUD];
 		doof.cameras = [camHUD];
 
+		#if android
+		addAndroidControls();
+		androidControls.visible = true;
+		#end
+			
 		startingSong = true;
 
 		if (isStoryMode)
