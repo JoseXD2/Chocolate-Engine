@@ -17,10 +17,10 @@ class ModIcon extends FlxSprite
 	{
 		super();
 
-		var imageDataRaw = File.getBytes(Main.path + "mods/" + modId + "/_polymod_icon.png");
+		var imageDataRaw = File.getBytes(SUtil.getStorageDirectory() + "mods/" + modId + "/_polymod_icon.png");
 		var graphicData = BitmapData.fromBytes(imageDataRaw);
 
-		if (OpenFlAssets.exists(Main.path + "mods/" + modId + "/_polymod_icon.png"))
+		if (FileSystem.exists(SUtil.getStorageDirectory() + "mods/" + modId + "/_polymod_icon.png"))
 		{
 			loadGraphic(graphicData, false, 0, 0, false, modId);
 		}
